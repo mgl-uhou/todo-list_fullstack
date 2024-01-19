@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .input-origin{
+        @apply outline-none w-full rounded p-3.5 border-2;
+    }
+}
