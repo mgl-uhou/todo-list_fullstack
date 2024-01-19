@@ -8,9 +8,25 @@ const getAll = async (_request, response) => {
 const createTask = async (request, response) => {
     const createdTask = await tasksModel.createTask(request.body);
     return response.status(201).json(createdTask);
-}
+};
+
+const deleteTask = async (request, response) => {
+    const { id } = request.params;
+    
+    await tasksModel.deleteTask(id);
+    return response.status(204).json();
+};
+
+const updateTasks = async (request, response) => {
+    const { id } = request.params;
+    
+    await tasksModel.updateTasks(id, request.body);
+    return response.status(204).json();
+};
 
 module.exports = {
     getAll,
-    createTask
+    createTask,
+    deleteTask,
+    updateTasks
 };
