@@ -10,45 +10,46 @@
 </head>
 <body class="bg-blue-500">
     
-    <main class="bg-gray-50 rounded shadow-md mx-auto my-10 w-11/12 p-5">
+    <main class="bg-white rounded shadow-md mx-auto my-10 w-11/12 p-5">
 
         <form class="flex mb-12 gap-4 w-full">
 
-            <input type="text" id="addTarefa" class="outline-none w-full rounded p-3.5 border border-gray-200" placeholder="Adiconar tarefa">
-            <button type="button"> + </button>
+            <input type="text" id="addTarefa" class="input-origin" placeholder="Adiconar tarefa">
+            <button type="submit" 
+            class="bg-blue-500 w-12 h-12 rounded text-white text-2xl flex items-center justify-center"> + </button>
 
         </form>
 
-        <table border="1">
+        <table class="table-auto w-full border-collapse border border-gray-500">
 
             <thead>
                 <tr>
-                    <th>Tarefa</th>
-                    <th>Criada em</th>
-                    <th>Status</th>
-                    <th>Ações</th>
+                    <th class="td-th">Tarefa</th>
+                    <th class="td-th">Criada em</th>
+                    <th class="td-th">Status</th>
+                    <th class="td-th">Ações</th>
                 </tr>
             </thead>
 
             <tbody>
 
-                <tr>
-                    <td>Nome da tarefa</td>
-                    <td>** de ******** de ****</td>
-                    <td>
-                        <select>
-                            <option value="pendente">Pendente</option>
-                            <option value="em andamento">Em andamento</option>
-                            <option value="concluido">Concluída</option>
+                <tr class="even:bg-gray-100">
+                    <td class="td-th">Nome da tarefa</td>
+                    <td class="td-th">** de ******** de ****</td>
+                    <td class="td-th">
+                        <select class="select-origin">
+                            <option value="pendente">pendente</option>
+                            <option value="em andamento">em andamento</option>
+                            <option value="concluido">concluída</option>
                         </select>
                     </td>
-                    <td>
-                        <button>
+                    <td class="td-th">
+                        <button class="btn-action">
                             <span class="material-symbols-outlined">
                                 edit
                                 </span>
                         </button>
-                        <button>
+                        <button class="btn-action">
                             <span class="material-symbols-outlined">
                                 delete
                                 </span>

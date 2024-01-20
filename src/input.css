@@ -4,6 +4,15 @@
 
 @layer components{
     .input-origin{
-        @apply outline-none w-full rounded p-3.5 border-2;
+        @apply outline-none w-full rounded p-3.5 border border-gray-200;
+    }
+    .td-th{
+        @apply py-2.5 px-4 text-center border border-gray-300;
+    }
+    .select-origin{
+        @apply w-full rounded p-2.5 capitalize font-semibold bg-gray-200 hover:bg-gray-300;
+    }
+    .btn-action{
+        @apply rounded p-1.5 inline-flex justify-center items-center text-white odd:bg-orange-400 odd:mr-1.5 even:bg-red-600;
     }
 }
