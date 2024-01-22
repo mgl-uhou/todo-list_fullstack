@@ -60,7 +60,9 @@ const createElement = (tag, innerText = "", innerHTML = "", classe = '') => {
         element.innerHTML = innerHTML;
     }
 
-    element.classList.add( classe );
+    if(classe){
+        element.classList.add( classe );
+    }
     return element;
 }
 
@@ -93,6 +95,27 @@ const createRow = (task) => {
 
     const editButton = createElement( 'button', '', '<span class="material-symbols-outlined">edit</span>', 'btn-action' );
     const deleteButton = createElement( 'button', '', '<span class="material-symbols-outlined">delete</span>', 'btn-action' );
+
+    const editForm = createElement( 'form' );
+    const editInput = createElement( 'input', '', '', 'input-edit' );
+
+    editInput.value = titulo;
+    editForm.appendChild( editInput );
+
+    editForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        //alert('testando o form');
+        updateTask({
+            id,
+            titulo: editInput.value,
+            status
+        });
+    });
+
+    editButton.addEventListener('click', () => {
+        tdTitle.innerText = "";
+        tdTitle.appendChild( editForm );
+    });
 
     deleteButton.addEventListener('click', () => deleteTask(id));
 

@@ -4,7 +4,7 @@
 
 @layer components{
     .input-origin{
-        @apply outline-none w-full rounded p-3.5 border border-gray-200;
+        @apply outline-none w-full rounded p-3.5 border border-gray-200 focus:ring-2 focus:ring-blue-300;
     }
     .td-th{
         @apply py-2.5 px-4 text-center border border-gray-300;
@@ -14,5 +14,8 @@
     }
     .btn-action{
         @apply rounded p-1.5 inline-flex justify-center items-center text-white odd:bg-orange-400 odd:mr-1.5 even:bg-red-600;
+    }
+    .input-edit{
+        @apply border border-gray-300 px-2 rounded outline-none focus:ring-2 focus:ring-blue-300;
     }
 }
