@@ -1,2 +1,8 @@
 */node_modules/
 backend/.env
+/prisma/.#*
+/prisma/dev.db
+/prisma/migrations
+/prisma/seed.ts
+/prisma/seed.js
+/prisma/generated
