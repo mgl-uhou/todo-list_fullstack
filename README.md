@@ -33,13 +33,13 @@ cd todolist-fullstack
 cd backend
 ```
 
-### 2.1 Install dependencies
+### 2.1. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 2.2 Configure the environment
+### 2.2. Configure the environment
 
 Create a `.env` file in the `backend` directory based on the `.env.example` file.
 ```bash
@@ -53,26 +53,26 @@ DATABASE_URL="file:./dev.db"
 PORT=3333
 ```
 
-### 2.3 Generate Prisma client and run migrations
+### 2.3. Generate Prisma client and run migrations
 
 ```bash
 npx prisma generate
 npx prisma migrate dev
 ```
 
-### 2.4 Start the backend server
+### 2.4. Start the backend server
 
 ```bash
 npm run dev
 ```
 
-### 3 Frontend Setup
+### 3. Frontend Setup
 
 ```bash
 cd ../frontend
 ```
 
-### 3.1 Install dependencies
+### 3.1. Install dependencies
 
 ```bash
 npm install
