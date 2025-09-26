@@ -1,37 +1,33 @@
-const connection = require('./connection');
+import prisma from "../db/connection.js";
 
-const getAll = async () => {
-    const [tasks] = await connection.execute('SELECT * FROM tasks');
-    return tasks;
+const tasksModel = {
+	getAll: async () => {
+		return await prisma.task.findMany();
+	},
+
+	createTask: async (task) => {
+		return await prisma.task.create({
+			data: {
+				titulo: task.titulo,
+			},
+		});
+	},
+
+	deleteTask: async (id) => {
+		return await prisma.task.delete({
+			where: { id: Number(id) },
+		});
+	},
+
+	updateTasks: async (id, task) => {
+		return await prisma.task.update({
+			where: { id: Number(id) },
+			data: {
+				titulo: task.titulo,
+				status: task.status,
+			},
+		});
+	},
 };
 
-const createTask = async (task) => {
-    const { titulo } = task;
-    const dateUTC = new Date(Date.now()).toUTCString();
-
-    const query = 'INSERT INTO tasks (titulo, status, created_at) VALUES (?, ?, ?)';
-
-    const [createdTask] = await connection.execute(query, [titulo, 'pendente', dateUTC]);
-    
-    return {insertId: createdTask.insertId};
-};
-
-const deleteTask = async (id) => {
-    const removedTask = await connection.execute('DELETE FROM tasks WHERE id = ?', [ id ]);
-    return removedTask;
-}
-
-const updateTasks = async (id, tasks) => {
-    const { titulo, status } = tasks;
-    const query = 'UPDATE tasks SET titulo = ?, status = ? WHERE id = ?';
-
-    const updatedTasks = await connection.execute(query, [titulo, status, id]);
-    return updatedTasks;
-};
-
-module.exports = {
-    getAll,
-    createTask,
-    deleteTask,
-    updateTasks
-};
+export default tasksModel;
